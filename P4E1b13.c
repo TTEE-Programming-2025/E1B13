@@ -79,13 +79,18 @@ int main(void)
 					printf("please write the student no n (range 5-10)");
 					scanf("%d",&n);
 					count=student(n,class1);
+					getch();
+					system("cls");
+					break;
+				case'b':	
 					printdata(class1,count);
 					
 					}
-	   		system("pause");
-	   		return 0;
+	   		
 	   	}
 		}
+		system("pause");
+	   	return 0;
 }
 int student(int r,struct studentdata *class2){
 
@@ -98,7 +103,36 @@ int student(int r,struct studentdata *class2){
 	}
 	for(i=0;i<r;i++){
 		printf("please enter the %d students name\n",i+1);
-		scanf("%s",(class2+i)->name); 
+		scanf("%s",(class2+i)->name);
+		printf("please enter the %d students Id\n",i+1);
+		scanf("%d",&(class2+i)->studentid);
+		while((class2+i)->studentid>1000000||(class2+i)->studentid<100000){
+			printf("wrong numer range\n");
+			printf("please enter the %d students Id\n",i+1);
+			scanf("%d",&(class2+i)->studentid);
+		}
+		printf("please enter the %d students math grade\n",i+1);
+		scanf("%d",&(class2+i)->math);
+		while((class2+i)->math>100||(class2+i)->math<0){
+			printf("wrong numer range\n");
+			printf("please enter the %d students math grade\n",i+1);
+			scanf("%d",&(class2+i)->math);
+		}
+		printf("please enter the %d students english grade\n",i+1);
+		scanf("%d",&(class2+i)->english);
+		while((class2+i)->english>100||(class2+i)->english<0){
+			printf("wrong numer range\n");
+			printf("please enter the %d students english grade\n",i+1);
+			scanf("%d",&(class2+i)->english);
+		}
+		printf("please enter the %d students physics grade\n",i+1);
+		scanf("%d",&(class2+i)->physics);
+		while((class2+i)->physics>100||(class2+i)->physics<0){
+			printf("wrong numer range\n");
+			printf("please enter the %d students physics grade\n",i+1);
+			scanf("%d",&(class2+i)->physics);
+		}
+		
 	}
 	return r;
 }
@@ -106,6 +140,7 @@ void printdata(struct studentdata *class2,int j){
 	int i=0;
 		for(i=0;i<j;i++){
 			printf("NO%d name=%s\n",i+1,(class2+i)->name);
-	}
+		}
+		
 }
 	

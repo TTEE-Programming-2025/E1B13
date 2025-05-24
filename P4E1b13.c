@@ -63,10 +63,14 @@ int main(void)
 			printf("|                               |\n");
 			printf("|    e.Exit system              |\n");
 			printf("---------------------------------\n");
-			printf("½Ð¿é¤J¦r¤¸ abc:");
+			printf("please write the characters abcde  :");
 	   		scanf(" %c",&ch1);
+	   		switch(ch1){
+				case'a':
+					//printf("")
 	   		system("pause");
 	   		return 0;
+	   	}
 		}
 	}
 }

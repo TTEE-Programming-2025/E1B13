@@ -58,7 +58,7 @@ int main(void)
 			printf("請輸入字元 abc:");
 	   		scanf(" %c",&ch1);
 	    //上方為第2題 
-			switch(ch1) {
+				/*switch(ch1) {
 	        	case 'A'://當使用著按下A or a時會進入畫直角三角形模式也就是第3題 
 	        	case 'a':
 		        	system("cls");
@@ -108,7 +108,8 @@ int main(void)
 					else if (choice=='N'||choice=='n'){
 						return 0 ;
 					}//如果按N or n則結束程式 
-    	}
+					
+    	}*/
     }   	
 	system("pause");
 	return 0;

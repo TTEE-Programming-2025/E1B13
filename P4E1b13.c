@@ -10,18 +10,17 @@ struct studentdata{
 	short int english;
 	short int physics;
 	
-};
-void student(int );
+} ;
+int student(int,struct studentdata *class2 );
+void printdata(struct studentdata *class2,int);
 void setseat(char );
 char seats [9][9];
 int main(void)
 {
 	int i,j,num,tryno,num1,n; 
-	char ch1,r,choice,answer;
-	int count = 0,findseat=0;
-	int row,col,rowseat,colseat,mode;
-	char input;
-	struct studentdata  class1[10];
+	char ch1,r;
+	int count = 0;
+    struct studentdata  class1[10];
 	time_t seconds ;
 	for (i=0;i<=10;i++){
 		printf("**********************************************************\n");
@@ -79,7 +78,8 @@ int main(void)
 					system("cls");
 					printf("please write the student no n (range 5-10)");
 					scanf("%d",&n);
-					student(n);
+					count=student(n,class1);
+					printdata(class1,count);
 					
 					}
 	   		system("pause");
@@ -87,17 +87,25 @@ int main(void)
 	   	}
 		}
 }
-void student(int r)
-{
-	int n,i ;
-	
+int student(int r,struct studentdata *class2){
+
+//	struct studentdata class2[10];
+	int i;
 	while(r<5||r>10){
 		printf("not range number\n");
 		printf("please write the number n (range 5-10)");
 		scanf("%d",&r);
 	}
-	for(i=0;i<=r;i++){
-		printf("please enter the %d students name\n",n);
-		scanf("%s",&class1.name); 
+	for(i=0;i<r;i++){
+		printf("please enter the %d students name\n",i+1);
+		scanf("%s",(class2+i)->name); 
+	}
+	return r;
+}
+void printdata(struct studentdata *class2,int j){
+	int i=0;
+		for(i=0;i<j;i++){
+			printf("NO%d name=%s\n",i+1,(class2+i)->name);
 	}
 }
+	

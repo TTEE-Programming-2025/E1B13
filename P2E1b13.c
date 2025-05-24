@@ -75,7 +75,7 @@ int main(void)
 		        	getch();//等待使用者輸入 
 		        	system("cls");
 		        	break ;//跳去主選單 
-	        	/*
+	        	
 	        	case 'B':
 	        	case 'b'://當使用著按下B or b時會進入乘法表模式也就是第4題
 	        		system("cls");
@@ -90,6 +90,7 @@ int main(void)
 	        		getch();
 	        		system("cls");
 	        		break ;//跳去主選單
+	        	/*
 	        	case'C':
 	        	case'c'://當使用著按下Cor c時系統會問你是否要繼續也就是第5題
 	        		system("cls");

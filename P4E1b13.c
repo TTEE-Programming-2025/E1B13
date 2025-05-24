@@ -3,16 +3,25 @@
 #include<time.h>
 #include <conio.h>
 #include<windows.h>
-void printseats();
+struct studentdata{
+	char name[15];
+	int  studentid;
+	short int math;
+	short int english;
+	short int physics;
+	
+};
+void student(int );
 void setseat(char );
 char seats [9][9];
 int main(void)
 {
-	int i,j,num,tryno,num1,needseats; 
+	int i,j,num,tryno,num1,n; 
 	char ch1,r,choice,answer;
 	int count = 0,findseat=0;
 	int row,col,rowseat,colseat,mode;
 	char input;
+	struct studentdata  class1[10];
 	time_t seconds ;
 	for (i=0;i<=10;i++){
 		printf("**********************************************************\n");
@@ -67,10 +76,28 @@ int main(void)
 	   		scanf(" %c",&ch1);
 	   		switch(ch1){
 				case'a':
-					//printf("")
+					system("cls");
+					printf("please write the student no n (range 5-10)");
+					scanf("%d",&n);
+					student(n);
+					
+					}
 	   		system("pause");
 	   		return 0;
 	   	}
 		}
+}
+void student(int r)
+{
+	int n,i ;
+	
+	while(r<5||r>10){
+		printf("not range number\n");
+		printf("please write the number n (range 5-10)");
+		scanf("%d",&r);
+	}
+	for(i=0;i<=r;i++){
+		printf("please enter the %d students name\n",n);
+		scanf("%s",&class1.name); 
 	}
 }

@@ -20,7 +20,7 @@ char seats [9][9];
 int main(void)
 {
 	int i,j,num,tryno,num1,n; 
-	char ch1,r,serchname[15];
+	char ch1,r,serchname[15],u;
 	int count = 0;
     struct studentdata  class1[10];
 	time_t seconds ;
@@ -105,13 +105,29 @@ int main(void)
 					getch();
 					system("cls");
 					break;
-			}
-	   		
+				case'e':
+					fflush(stdin);
+					printf("Are you sure to leave?");
+					scanf("%c",&u);
+					while(u!='y'&&u!='n'){
+						printf("the enter is error\n");
+						fflush(stdin);
+						printf("Are you sure to leave?");
+						scanf("%c",&u);
+					}
+					if (u=='n'){
+						break;				 
+					}
+					else if(u=='y'){
+						return 0;
+					}
+						   		
 	   	}
 	}
 	system("pause");
 	return 0;
-}
+	}	
+} 
 int student(int r,struct studentdata *class2){
 
 //	struct studentdata class2[10];
@@ -228,9 +244,9 @@ void graderank(struct studentdata *class2,int j){
 				temp=class2[k];
 				class2[k]=class2[k+1];
 				class2[k+1]=temp;
-				sortflag=1;
+				sortflag=1;//目的看有沒有排序過 
 			}
-		}
+		}  //如果不用排序就跳脫迴圈 
 		if(sortflag==0){
 			break;
 		}
@@ -244,3 +260,4 @@ void graderank(struct studentdata *class2,int j){
 			printf("NO%d Average=%.1f\n",i+1,(class2+i)->average);	
 	}
 }
+

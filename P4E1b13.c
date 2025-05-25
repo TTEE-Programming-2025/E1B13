@@ -38,19 +38,19 @@ int main(void)
 	printf("**                              2025.5.10製作            **\n");
 	system("pause");//等待使用者輸入 
 	system("cls");//清除螢幕
-	printf("請輸入4位數字密碼:");
+	printf("please write the four code:");
 	scanf("%d",&num);
 	if(num!=2025){
 		tryno=1;
 		for(i=2;i<=3;i++){
-			printf("%d密碼錯誤,此為第%d次輸入\n",num,tryno);
-			printf("請輸入4位數字密碼:");
+			printf("%d is error ,this is %d time enter\n",num,tryno);
+			printf("please write the four code:");
 			scanf("%d",&num); 
 			if(num==2025)break;//3次以內密碼正確就跳出這for迴圈 
 			else if (num!=2025){
 				tryno++;
 				if(i==3){
-					printf("%d密碼錯誤,此為第%d次輸入\n",num,tryno);
+					printf("%d is error ,this is %d time enter",num,tryno);
 	
 				}
 				continue;//如果錯第3次就會先顯示密碼錯誤,在結束程式 
@@ -58,7 +58,7 @@ int main(void)
 		}
 	} 
 	if(num==2025){
-		printf("%d密碼正確",num);
+		printf("%d is correct",num);
 		while(1){
 		 	Sleep(500);//延遲5秒  
 			system("cls");//清除螢幕 
@@ -106,6 +106,7 @@ int main(void)
 					system("cls");
 					break;
 				case'e':
+					system("cls");
 					fflush(stdin);
 					printf("Are you sure to leave?");
 					scanf("%c",&u);

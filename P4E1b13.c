@@ -5,20 +5,22 @@
 #include<windows.h>
 struct studentdata{
 	char name[15];
-	int  studentid;
+	char  studentid[6];
 	short int math;
 	short int english;
 	short int physics;
-	
+	float average;
 } ;
 int student(int,struct studentdata *class2 );
 void printdata(struct studentdata *class2,int);
+void search(struct studentdata *class2,char *,int);
+void graderank(struct studentdata *class2,int);
 void setseat(char );
 char seats [9][9];
 int main(void)
 {
 	int i,j,num,tryno,num1,n; 
-	char ch1,r;
+	char ch1,r,serchname[15];
 	int count = 0;
     struct studentdata  class1[10];
 	time_t seconds ;
@@ -74,28 +76,49 @@ int main(void)
 			printf("please write the characters abcde  :");
 	   		scanf(" %c",&ch1);
 	   		switch(ch1){
-				case'a':
+				case 'a':
 					system("cls");
-					printf("please write the student no n (range 5-10)");
+					fflush(stdin);
+					printf("please input the student no. n (range 5-10)");
 					scanf("%d",&n);
 					count=student(n,class1);
 					getch();
 					system("cls");
 					break;
-				case'b':	
+				case 'b':	
 					printdata(class1,count);
-					
-					}
+					getch();
+					system("cls");
+					break;
+				case 'c':
+					system("cls");
+					fflush(stdin);
+					printf("please input the serch name:");	
+					gets(serchname);
+					printf("serch name=%s\n",serchname);
+					search(class1,serchname,count);
+					getch();
+					system("cls");
+					break;
+				case 'd' :
+					graderank(class1,count);
+					getch();
+					system("cls");
+					break;
+			}
 	   		
 	   	}
-		}
-		system("pause");
-	   	return 0;
+	}
+	system("pause");
+	return 0;
 }
 int student(int r,struct studentdata *class2){
 
 //	struct studentdata class2[10];
-	int i;
+	int i,k,flag=0;
+	char id[15];
+	float average;
+	//char buffer[35];
 	while(r<5||r>10){
 		printf("not range number\n");
 		printf("please write the number n (range 5-10)");
@@ -104,12 +127,41 @@ int student(int r,struct studentdata *class2){
 	for(i=0;i<r;i++){
 		printf("please enter the %d students name\n",i+1);
 		scanf("%s",(class2+i)->name);
+		fflush(stdin);
 		printf("please enter the %d students Id\n",i+1);
-		scanf("%d",&(class2+i)->studentid);
-		while((class2+i)->studentid>1000000||(class2+i)->studentid<100000){
-			printf("wrong numer range\n");
-			printf("please enter the %d students Id\n",i+1);
-			scanf("%d",&(class2+i)->studentid);
+		gets(id);
+	//	k=(class2+i)->studentid;
+		//printf("wrong numerjjj range\n");
+		while(1){
+			
+			while((strlen(id))!=6){
+				printf("string=%s,length=%d\n",id,strlen(id));
+				printf("The range of students ID is wrong.\n");
+				printf("please enter the %d students Id.\n",i+1);
+				gets(id);
+//				scanf("%d",&(class2+i)->studentid);
+			}
+//			k=strlen((class2+i)->studentid)
+			k=(strlen(id));
+			for(k=0;k<=5;k++){
+				if(id[k]>=48 && id[k]<=57){
+					if (k==5) {
+						flag = 1	;
+					} 
+				}
+				else{
+					printf("The range of students ID is wrong.\n");
+					printf("please enter the %d students Id.\n",i+1);
+					gets(id);
+					break;	
+				}
+				
+			}
+			if(flag==1){
+				strcpy((class2+i)->studentid,id);
+				flag=0;
+				break;
+			}
 		}
 		printf("please enter the %d students math grade\n",i+1);
 		scanf("%d",&(class2+i)->math);
@@ -132,7 +184,7 @@ int student(int r,struct studentdata *class2){
 			printf("please enter the %d students physics grade\n",i+1);
 			scanf("%d",&(class2+i)->physics);
 		}
-		
+		(class2+i)->average=((class2+i)->math + (class2+i)->english + (class2+i)->physics)/3.0;
 	}
 	return r;
 }
@@ -140,7 +192,55 @@ void printdata(struct studentdata *class2,int j){
 	int i=0;
 		for(i=0;i<j;i++){
 			printf("NO%d name=%s\n",i+1,(class2+i)->name);
+			printf("NO%d Student ID=%s\n",i+1,(class2+i)->studentid);
+			printf("NO%d Math=%d\n",i+1,(class2+i)->math);
+			printf("NO%d English=%d\n",i+1,(class2+i)->english);
+			printf("NO%d Physics=%d\n",i+1,(class2+i)->physics);
+			printf("NO%d Average=%.1f\n",i+1,(class2+i)->average);
 		}
 		
 }
-	
+void search(struct studentdata *class2,char *sname,int j){
+	int i = 0,sflag=0;
+	for(i=0;i<j;i++){
+		if(strcmp((class2+i)->name,sname)==0){
+			printf("NO%d name=%s\n",i+1,(class2+i)->name);
+			printf("NO%d Student ID=%s\n",i+1,(class2+i)->studentid);
+			printf("NO%d Math=%d\n",i+1,(class2+i)->math);
+			printf("NO%d English=%d\n",i+1,(class2+i)->english);
+			printf("NO%d Physics=%d\n",i+1,(class2+i)->physics);
+			printf("NO%d Average=%.1f\n",i+1,(class2+i)->average);
+			sflag=1;
+			break ;
+		}
+	}
+	if (sflag==0)
+		printf("Can't find the name=%s,the name dosen't exist!",sname)	;
+}
+void graderank(struct studentdata *class2,int j){
+	int i=0,k=0,sortflag;
+	float tempmin;
+	struct studentdata  temp;
+	for(i=j-1;i>=0;i--){
+		sortflag=0;
+		for(k=0;k<i;k++){
+			if((class2+k)->average > (class2+k+1)->average){
+				temp=class2[k];
+				class2[k]=class2[k+1];
+				class2[k+1]=temp;
+				sortflag=1;
+			}
+		}
+		if(sortflag==0){
+			break;
+		}
+	}
+	for(i=j-1;i>=0;i--){
+			printf("NO%d name=%s\n",i+1,(class2+i)->name);
+			printf("NO%d Student ID=%s\n",i+1,(class2+i)->studentid);
+			printf("NO%d Math=%d\n",i+1,(class2+i)->math);
+			printf("NO%d English=%d\n",i+1,(class2+i)->english);
+			printf("NO%d Physics=%d\n",i+1,(class2+i)->physics);
+			printf("NO%d Average=%.1f\n",i+1,(class2+i)->average);	
+	}
+}

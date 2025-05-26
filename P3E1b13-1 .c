@@ -209,7 +209,7 @@ int main(void)
 							break;
 						}//If you enter other characters, the program will pop up an input error message and change the original '@' to '-' to indicate that the reservation failed.
 				//exercise 5
-				/*case'c':
+				case'c':
 					system("cls");
 					do{
 					error=0;
@@ -297,7 +297,7 @@ int main(void)
 					getch();//Waiting for input
 				break;	
 				// exercise 6
-				case'd':
+				/*case'd':
 					system("cls");
 	        		fflush(stdin);//
 	        		printf("Continue?(y/n):");

@@ -81,7 +81,7 @@ int main(void)
 			printf("please write the char abcd:");
 	   		scanf(" %c",&ch1);
 	   	
-	   		/*switch(ch1){
+	   		switch(ch1){
 				case'a':
 					system("cls");
 					fflush(stdin);
@@ -90,7 +90,7 @@ int main(void)
 						getch();//Waiting for input
 						system("cls");
 						break;
-				case'b':
+				/*case'b':
 					system("cls");
 					fflush(stdin);//Clear the input buffer
 					printf("please enter your seat people(1-4)");
@@ -313,9 +313,9 @@ int main(void)
 					}//If you press Y or y the system will return to the main menu
 					else if (choice=='n'){
 						return 0 ;
-					}//If you press N or n, the program ends.			    
+					}//If you press N or n, the program ends.*/			    
 		   	} 
-		   */     	
+		       	
 				
 		}	
 	}

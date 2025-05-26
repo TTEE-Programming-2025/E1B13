@@ -90,7 +90,7 @@ int main(void)
 						getch();//Waiting for input
 						system("cls");
 						break;
-				/*case'b':
+				case'b':
 					system("cls");
 					fflush(stdin);//Clear the input buffer
 					printf("please enter your seat people(1-4)");
@@ -209,7 +209,7 @@ int main(void)
 							break;
 						}//If you enter other characters, the program will pop up an input error message and change the original '@' to '-' to indicate that the reservation failed.
 				//exercise 5
-				case'c':
+				/*case'c':
 					system("cls");
 					do{
 					error=0;

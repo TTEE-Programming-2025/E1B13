@@ -81,7 +81,7 @@ int main(void)
 			printf("please write the char abcd:");
 	   		scanf(" %c",&ch1);
 	   	
-	   		switch(ch1){
+	   		/*switch(ch1){
 				case'a':
 					system("cls");
 					fflush(stdin);
@@ -315,7 +315,7 @@ int main(void)
 						return 0 ;
 					}//If you press N or n, the program ends.			    
 		   	} 
-		        	
+		   */     	
 				
 		}	
 	}

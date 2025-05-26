@@ -297,7 +297,7 @@ int main(void)
 					getch();//Waiting for input
 				break;	
 				// exercise 6
-				/*case'd':
+				case'd':
 					system("cls");
 	        		fflush(stdin);//
 	        		printf("Continue?(y/n):");
@@ -313,7 +313,7 @@ int main(void)
 					}//If you press Y or y the system will return to the main menu
 					else if (choice=='n'){
 						return 0 ;
-					}//If you press N or n, the program ends.*/			    
+					}//If you press N or n, the program ends.		    
 		   	} 
 		       	
 				
@@ -355,8 +355,4 @@ void setseat(char CH1){
 		}
 	}	
 }
-/* This time I learned how to use character arrays and create a simple positioning system. This was the longest time I spent on this project 
-because it was more difficult, 
-but it was fun to finish because it felt like the reservation system out there. I felt that if I just changed the numbers a bit more,
- it could become a high-speed train version or a cinema version. If I have to make a simple reservation system in the future, 
- I will apply his ideas. This is a very practical project.*/
+

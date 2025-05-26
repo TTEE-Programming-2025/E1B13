@@ -28,14 +28,14 @@ int main(void)
 		printf("**********************************************************\n");
 	}      //印出10次符號 
 	printf("**                                                      **\n");
-	printf("**       jimmy's program 3                                **\n");
+	printf("**       jimmy's program 4                              **\n");
 	printf("**       E1B13                                          **\n");
 	printf("**       Have a nice day                                **\n");
 	for (i=0;i<=6;i++){
 		printf("**********************************************************\n");
 		printf("##########################################################\n");
     }     //印出7次2行交錯符號 
-	printf("**                              2025.5.10製作            **\n");
+	printf("**                              2025.5.24製作            **\n");
 	system("pause");//等待使用者輸入 
 	system("cls");//清除螢幕
 	printf("please write the four code:");
@@ -82,12 +82,13 @@ int main(void)
 					printf("please input the student no. n (range 5-10)");
 					scanf("%d",&n);
 					count=student(n,class1);
-					getch();
+					system("pause");
 					system("cls");
 					break;
-				case 'b':	
+				case 'b':
+					system("cls");	
 					printdata(class1,count);
-					getch();
+					system("pause");
 					system("cls");
 					break;
 				case 'c':
@@ -97,12 +98,13 @@ int main(void)
 					gets(serchname);
 					printf("serch name=%s\n",serchname);
 					search(class1,serchname,count);
-					getch();
+					system("pause");
 					system("cls");
 					break;
 				case 'd' :
+					system("cls");
 					graderank(class1,count);
-					getch();
+					system("pause");
 					system("cls");
 					break;
 				case'e':
@@ -131,11 +133,9 @@ int main(void)
 } 
 int student(int r,struct studentdata *class2){
 
-//	struct studentdata class2[10];
 	int i,k,flag=0;
 	char id[15];
 	float average;
-	//char buffer[35];
 	while(r<5||r>10){
 		printf("not range number\n");
 		printf("please write the number n (range 5-10)");
@@ -147,18 +147,14 @@ int student(int r,struct studentdata *class2){
 		fflush(stdin);
 		printf("please enter the %d students Id\n",i+1);
 		gets(id);
-	//	k=(class2+i)->studentid;
-		//printf("wrong numerjjj range\n");
 		while(1){
 			
 			while((strlen(id))!=6){
-				printf("string=%s,length=%d\n",id,strlen(id));
 				printf("The range of students ID is wrong.\n");
 				printf("please enter the %d students Id.\n",i+1);
 				gets(id);
-//				scanf("%d",&(class2+i)->studentid);
+
 			}
-//			k=strlen((class2+i)->studentid)
 			k=(strlen(id));
 			for(k=0;k<=5;k++){
 				if(id[k]>=48 && id[k]<=57){
